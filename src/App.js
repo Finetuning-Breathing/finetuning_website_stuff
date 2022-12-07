@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Shop from "./pages/Shop";
 import ProductView from "./pages/ProductView";
+import styles from "./styles/Nav.css";
 
 // Import Parse minified versio
 import Parse from 'parse/dist/parse.min.js';

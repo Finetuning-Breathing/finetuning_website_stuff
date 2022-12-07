@@ -1,0 +1,36 @@
+.container {
+    border: 75px;
+    border-style: outset;
+}
+
+.heading {
+    text-align: center;
+    font-family: "PSL Ornanong Pro", ui-rounded;
+}
+
+.form_fields {
+    text-align: center;
+    font-family: "PSL Ornanong Pro", ui-rounded;
+    font-size: 24px;
+
+}
+
+.form_input {
+    padding: 12px 24px;
+}
+
+.form_button {
+    background-color: forestgreen;
+    border-radius: 4px;
+    color: white;
+    padding: 10px 50px;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+}
+
+.form_buttons {
+    text-align: center;
+    margin: 10px 5px;
+}

@@ -1,6 +1,8 @@
 import {useState} from "react";
 import Parse from "parse/dist/parse.min.js";
 import {useParams} from "react-router-dom";
+import styles from "../styles/Login.css";
+
 
 export default function Login(){
     const { fail } = useParams();

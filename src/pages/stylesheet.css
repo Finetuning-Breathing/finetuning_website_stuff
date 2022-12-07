@@ -1,0 +1,285 @@
+
+/*:root {
+    --color1: #3b393a;
+    --color2: #888;
+    --color3: ;
+    --color4: #efefef;
+    --color5: #fff;
+} */
+
+@font-face {
+    font-family: "Gotham-Bold";
+
+}
+
+@font-face {
+    font-family: "gotham-rounded-light";
+
+}
+
+.main-container {
+    background-color: #efefef;
+}
+
+.bg-color1 {
+    background-color: white;
+}
+
+.bg-color2 {
+    background-color: forestgreen;
+}
+
+.bg-color3 {
+    background-color: darkblue;
+}
+
+.bg-color4 {
+    background-color: red;
+}
+
+.bg-color5 {
+    background-color: #fff;
+}
+
+.flex {
+    flex-direction: column;
+}
+
+/*
+===========================================================
+                        HEADER
+ ==========================================================
+*/
+
+.main-bg {
+    background-color: forestgreen;
+    background-size: cover;
+    background-position: center center;
+    height: 700px;
+}
+
+.main-bg-1 {
+    background-color: forestgreen;
+    background-size: cover;
+    background-position: center;
+    height: 660px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-select {
+    alignment: center;
+    padding: 10px 20px;
+}
+
+h2 {
+    color: white;
+}
+
+.form-control {
+    float: inside;
+    text-align: center;
+    alignment: center;
+    padding: 10px 20px;
+    font-family: "PSL Ornanong Pro", fantasy;
+    display: inline-block;
+
+}
+
+li {
+    alignment: center;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+}
+
+.search {
+    padding: 10px 20px;
+    width: 50px;
+}
+.searchbox h5 {
+    text-align: center;
+    padding: 10px 20px;
+    color: forestgreen;
+}
+
+.bttn-icon i {
+    color: yellow;
+}
+
+.text {
+    color: white;
+}
+/*
+===========================================================
+                     Main
+ ==========================================================
+*/
+
+.sale-info {
+    height: 150px;
+    background-color: forestgreen;
+    text-align: center;
+}
+
+.btn-color {
+    background-color: white;
+}
+/*
+.card-1 {
+    background: white;
+}
+
+.card-2 {
+    background: radial-gradient(farthest-corner at 80% 30%, rgba(230, 230, 230, 0.09));
+}
+
+.card-3 {
+    background: radial-gradient(farthest-corner at 80% 30%, rgba(230, 230, 230, 0.09));
+}
+
+.card-4 {
+    background: radial-gradient(farthest-corner at 80% 30%, rgba(230, 230, 230, 0.09), #3b393a);
+}
+
+.card-5 {
+    background: radial-gradient(farthest-corner at 80% 30%, rgba(230, 230, 230, 0.09), #3b393a);
+}
+
+.card-6 {
+    background: white(farthest-corner at 80% 30%, rgba(230, 230, 230, 0.09), #3b393a);
+}
+
+.card-7 {
+    background: white(farthest-corner at 80% 30%, rgba(230, 230, 230, 0.09), #3b393a);
+}
+
+.card-8 {
+    background-color: white(farthest-corner at 80% 30%, rgba(230, 230, 230, 0.09));
+}
+
+.instrument {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+}
+
+.ad-image {
+    width: 220px;
+    height: auto;
+}
+
+.swipe {
+    border: 1px #888 solid;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 4px;
+    padding-left: 8px;
+    color: darkred;
+    background-color: #efefef;
+}
+
+.swipe:hover {
+    background-color: #888;
+    color: darkred;
+}
+
+.title {
+    color: #888;
+}
+
+.brands {
+    background-color: #efefef;
+}
+
+.block-title {
+    margin-bottom: 5px;
+}
+
+.sort {
+    width: 150px;
+}
+
+.toolbar {
+    background-color: #efefef;
+}
+
+.btn-add {
+    border: 1px solid var(--color2);
+    padding: 0.5em;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.2rem;
+    width: 1.5rem;
+    height: 1.4rem;
+    border-radius: 4px;
+    color: #888;
+    font-size: 0.7rem;
+    cursor: pointer;
+}
+
+.brands {
+    margin-top: 0.2rem;
+}
+*/
+/*
+===========================================================
+                     FOOTER
+ ==========================================================
+*/
+
+.fmenu * + * {
+    color: #fff;
+}
+
+/*
+===========================================================
+                     MEDIA QUERIES
+ ==========================================================
+*/
+
+@media screen and (max-width: 768px) {
+    .instrument {
+        height: 12rem;
+    }
+
+    .sort {
+        display: none;
+    }
+
+    .main .slide {
+        display: none;
+    }
+}
+/*
+@media screen and (min-width: 768px) {
+    .logo-img img {
+        max-width: 50px;
+        max-height: 50px;
+    }
+
+    .instrument {
+        height: 11rem;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .instrument {
+        height: 10rem;
+    }
+
+    .product-img {
+        height: 18rem;
+        width: 20rem;
+    }
+}
+*/
