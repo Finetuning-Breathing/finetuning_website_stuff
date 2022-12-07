@@ -4,6 +4,7 @@ import {Routes, Route, Link} from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Shop from "./pages/Shop";
+import ProductView from "./pages/ProductView";
 
 // Import Parse minified versio
 import Parse from 'parse/dist/parse.min.js';
@@ -37,6 +38,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login/>} />
           <Route path="/shop" element={<Shop/>} />
+          <Route path="/shop/:id" element={<ProductView/>} />
         </Routes>
       </div>
   );

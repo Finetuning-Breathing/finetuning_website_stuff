@@ -1,5 +1,7 @@
-import React from "react";
+//import {Link} from "react-router-dom";
 
 export default function Shop(){
-    return <h2>Shop</h2>;
+    return <>
+        <h2>Products</h2>
+    </>;
 }
