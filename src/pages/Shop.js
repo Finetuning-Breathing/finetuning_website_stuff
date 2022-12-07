@@ -1,11 +1,14 @@
 //import {Link} from "react-router-dom";
+import './stylesheet.css';
+import './normalizer.css';
+import React from "react";
 
 export default function Shop(){
     return (
 
         <body className="bg-body">
             <center>
-                <img src="../../finetuning2/src/assets/flc_design2022100472759.png" alt="CompanyLogo"/>
+                <img src="flc_design2022100472759.png" alt="CompanyLogo"/>
                     <h1 >FineTuning Sells</h1>
                 </center>
                 <section role="form" className="css-1uglrit">
@@ -128,7 +131,7 @@ export default function Shop(){
                                        id="text_box_Image" maxLength="4000"/>
                             </div>
                         </div>
-                            <button className="form-control" type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="submit-btn">Submit</button>
                     </form>
                 </section>
         </body>

@@ -103,6 +103,12 @@ img {
     padding: 10px 20px;
     width: 50px;
 }
+
+.submit-btn {
+    padding: 10px 70px;
+    font-family: "PSL Ornanong Pro";
+}
+
 .searchbox h5 {
     text-align: center;
     padding: 10px 20px;

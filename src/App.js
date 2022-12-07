@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Shop from "./pages/Shop";
 import ProductView from "./pages/ProductView";
+import Repair from "./pages/Repair";
+import Instrument from "./pages/Instrument"
 import styles from "./styles/Nav.css";
 
 // Import Parse minified versio
@@ -31,6 +33,12 @@ export default function App() {
             <li>
               <Link to="/shop">Shop</Link>
             </li>
+              <li>
+                  <Link to="/repair">Repair</Link>
+              </li>
+              <li>
+                  <Link to="/instrumentsview">Instrument</Link>
+              </li>
           </ul>
         </nav>
         {/* A <Switch> looks through its children <Route>s and
@@ -40,6 +48,8 @@ export default function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/shop" element={<Shop/>} />
           <Route path="/shop/:id" element={<ProductView/>} />
+            <Route path="/repair" element={<Repair/>} />
+            <Route path="/instrument" element={<Instrument/>} />
         </Routes>
       </div>
   );
