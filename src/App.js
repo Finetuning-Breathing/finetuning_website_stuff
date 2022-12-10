@@ -6,8 +6,9 @@ import Login from "./pages/Login";
 import Shop from "./pages/Shop";
 import ProductView from "./pages/ProductView";
 
-// Import Parse minified versio
+// Import Parse minified version
 import Parse from 'parse/dist/parse.min.js';
+import Repair from "./pages/Repair";
 
 // Your Parse initialization configuration goes here
 const PARSE_APPLICATION_ID = 'oQT9NFoGJ9HQWefMSlnkns8V9cudTjsXsyhXOTwr';
@@ -19,26 +20,30 @@ Parse.serverURL = PARSE_HOST_URL;
 export default function App() {
   return (
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/shop">Shop</Link>
-            </li>
-          </ul>
-        </nav>
+          <nav>
+              <ul>
+                  <li>
+                      <Link to="/">Home</Link>
+                  </li>
+                  <li>
+                      <Link to="/shop">Shop</Link>
+                  </li>
+                  <li>
+                      <Link to="/login">Login</Link>
+                  </li>
+                  <li>
+                      <Link to="/repair">Repair</Link>
+                  </li>
+              </ul>
+          </nav>
         {/* A <Switch> looks through its children <Route>s and
            renders the first one that matches the current URL. */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login/>} />
+          <Route path="/login" element={<Login />} />
           <Route path="/shop" element={<Shop/>} />
           <Route path="/shop/:id" element={<ProductView/>} />
+            <Route path="/repair" element={<Repair />} />
         </Routes>
       </div>
   );

@@ -1,15 +1,13 @@
 import {useState} from "react";
 import Parse from "parse/dist/parse.min.js";
-import {useParams} from "react-router-dom";
+import "./Login.css";
 
-export default function Login(){
-    const { fail } = useParams();
-
-
+export default function Login() {
     //state variables
+    const [fail, setFail] = useState(0);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [currentUser, setCurrentUser] = useState(null);
+    const [currentUser, setCurrentUser] = useState(Parse.User.current());
 
     // Function that will return current user and also update current username
     const getCurrentUser = async function () {
@@ -19,6 +17,13 @@ export default function Login(){
         return currentUser;
     };
 
+    const getFail = async function (val) {
+        // Update state variable holding current user
+        setFail(val);
+        return fail;
+    };
+
+    //log into user account if username and password is correct
     const doUserLogIn = async function () {
         // Note that these values come from state variables that we've declared before
         try {
@@ -31,30 +36,34 @@ export default function Login(){
             // Clear input fields
             setUsername('');
             setPassword('');
+            //resetEmail(currentUser.getEmail());
             // Update state variable holding current user
             await getCurrentUser();
-            return true;
+            //go home when logged in
+            return getFail(-1);
         } catch (error) {
             // Error can be caused by wrong parameters or lack of Internet connection
-            alert(`Error! ${error.message}`);
-            return false;
+            //or wrong credentials
+            console.log(`Error! ${error.message}`);
+            //empty login inputs
+            setUsername('');
+            setPassword('');
+            //fail = 1;
+            return getFail(1);
         }
     };
 
+    //log user out by clicking button
     const doUserLogOut = async function () {
         try {
             await Parse.User.logOut();
-            // To verify that current user is now empty, currentAsync can be used
-            const currentUser = await Parse.User.current();
-            if (currentUser === null) {
-                alert('Success! No user is logged in anymore!');
-            }
             // Update state variable holding current user
             await getCurrentUser();
-            return true;
+            //go home when logged out
+            return getFail(-1);
         } catch (error) {
-            alert(`Error! ${error.message}`);
-            return false;
+            console.log(`Error! ${error.message}`);
+            return getFail(1);
         }
     };
 
@@ -66,78 +75,86 @@ export default function Login(){
             const createdUser = await Parse.User.signUp(username, password);
             setCurrentUser(createdUser);
             //alert(`Success! User ${createdUser.getUsername()} was successfully created!`);
-            return true;
+            //fail = -1;
+            return getFail(-1);
         } catch (error) {
             // signUp can fail if any parameter is blank or failed a uniqueness check on the server
             alert(`Error! ${error}`);
-            return false;
+            //fail = 2;
+            return getFail(2);
         }
     };
+
     //return code that displays the user login info when logged in
     return <>
         {currentUser === null && (
-        <div className="container">
-            <h2 className="heading">Account Login</h2>
-            <div className="form_fields">
-                <input
-                    value={username}
-                    onChange={(event) => setUsername(event.target.value)}
-                    placeholder="Username"
-                    size="large"
-                    className="form_input"
-                />
-                <input
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
-                    placeholder="Password"
-                    size="large"
-                    type="password"
-                    className="form_input"
-                />
-            </div>
-            <div className="form_buttons">
-                <button
-                    onClick={() => doUserRegistration()}
-                    type="primary"
-                    className="form_button"
-                    color={'#ec2020'}
-                >
-                    Sign Up
-                </button>
-                <button
-                        onClick={() => doUserLogIn()}
+            <div className="container">
+                <h2 className="heading">Account Login</h2>
+                <div className="form_fields">
+                    <input
+                        value={username}
+                        onChange={(event) => setUsername(event.target.value)}
+                        placeholder="Username"
+                        size="large"
+                        className="form_input"
+                    />
+                    <br/>
+                    <input
+                        value={password}
+                        onChange={(event) => setPassword(event.target.value)}
+                        placeholder="Password"
+                        size="large"
+                        type="password"
+                        className="form_input"
+                    />
+                    {fail === 1 && (
+                        <>
+                            <br/>
+                            <div style={{color: "red"}}>Incorrect username/password</div>
+                        </>
+                    )}
+                </div>
+                <div className="form_buttons">
+                    <button
+                        onClick={() => setFail(doUserRegistration)}
                         type="primary"
                         className="form_button"
-                        color={'#ec2020'}
+                    >
+                        Sign Up
+                    </button>
+                    <button
+                        onClick={() => setFail(doUserLogIn)}
+                        type="primary"
+                        className="form_button"
                     >
                         Log In
-                </button>
+                    </button>
+                </div>
                 <div>
                     <button
-                        onClick={() => {}}
+                        onClick={() => {
+                        }}
                         type="primary"
                         className="form_button"
-                        color={'#ec2020'}
                     >
                         Forgot Password?
                     </button>
                 </div>
-            </div>
-        </div>)}
+            </div>)}
         {currentUser !== null && (
             <div>
                 <h2 className="heading">User Screen</h2>
-                <divider/>
-                <h2 className="heading">{currentUser.get('username')}</h2>
+                <br/>
+                <h2 className="heading">{currentUser.getUsername()}</h2>
+                <div className="form_fields">
+                    <b>{currentUser.getEmail()}</b>
+                </div>
                 <div className="form_buttons">
                     <button
-                        onClick={() => doUserLogOut()}
+                        onClick={() => setFail(doUserLogOut)}
                         type="primary"
                         className="form_button"
-                        color={'#208AEC'}
-                    >
-                        Log Out
-                    </button>
+                    >Log Out</button>
                 </div>
             </div>
         )}
